@@ -87,3 +87,27 @@ const sortNumbersAndStrings = (array) => {
 
 console.log(sortNumbersAndStrings(arrayNumAndString));
 // Output: [ -7, 1, 4, 21, 30, 10000, 'abc', 'devcoder', 'zebra' ]
+
+/*=== Challenge: Define a funciton that takes an array of strings, and returns the most commonly occuring string ===*/
+
+// Solution 1: 
+const mostFrequentString = (array) => {
+    if (!array.length) return null;
+  
+    const frequencyMap = {};
+    array.forEach((str) => {
+      frequencyMap[str] = (frequencyMap[str] || 0) + 1;
+    });
+  
+    let mostFrequent = "";
+    let maxCount = 0;
+  
+    for (const str in frequencyMap) {
+      if (frequencyMap[str] > maxCount) {
+        mostFrequent = str;
+        maxCount = frequencyMap[str];
+      }
+    }
+  
+    return mostFrequent;
+  };
